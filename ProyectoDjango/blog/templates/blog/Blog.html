@@ -1,0 +1,22 @@
+<html>
+    <head>
+        posts
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                {% for categoria in categorias %}
+                <li><a href="{% url 'Categorias' categoria.id %}">{{categoria.nombre}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% for post in posts %}
+        <div>
+            <h1>{{servicio.titulo}}</h1>
+            <h2>{{post.contenido}}</h2>
+            <img src="{{post.imagen.url}}"/>
+        </div>
+        {% endfor %}
+    </body>
+</html>

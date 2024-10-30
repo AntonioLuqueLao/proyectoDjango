@@ -1,0 +1,26 @@
+<html>
+    <head>
+        Tienda
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <p>IMPORTE TOTAL: {{importe_total_carro}}</p>
+                <div>
+                    {% include "carro/widget.html" %}
+                </div>
+            </div>
+            {% for producto in productos %}
+            <div>
+                <div>
+                    <img src="{{producto.imagen.url}}"/>
+                </div>
+                <h7>{{producto.nombre}}</h7>
+                <p>{{producto.precio}}</p>
+                <a href="{% url 'carro:agregar' producto.id %}">AGREGAR PRODUCTO</a>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

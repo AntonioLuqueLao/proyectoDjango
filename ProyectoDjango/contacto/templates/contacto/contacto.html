@@ -1,0 +1,20 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+
+        {% if "valido" in request.GET %}
+
+            <p>Información enviada correctamente, gracias</p>
+        {% endif %}
+        
+        <table>
+            <form action="" method="POST">{% csrf_token %}
+                {{miFormulario.as_table}}
+                <input value="Enviar" type="submit"/>
+            </form>
+        </table>
+        {{request.POST}}
+    </body>
+</html>

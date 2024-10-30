@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">
+                Carro compras
+            </th>
+        </tr>
+
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Suma</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% if request.session.carro.items %}
+            {% for key, value in request.session.carro.items %}
+            <tr>
+                <td>{{value.nombre}}</td>
+                <td>{{value.cantidad}}</td>
+                <td>
+
+                    <a href="{% url 'carro:agregar' value.producto_id %}">+</a>
+                    <a href="{% url 'carro:restar' value.producto_id %}">-</a>
+                    {{value.precio}}
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <p>El carro está vacío</p>
+        {% endif %}
+    </tbody>
+</table>
